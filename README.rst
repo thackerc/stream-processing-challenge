@@ -17,6 +17,10 @@ Setup Instructions
 
 2. Confirm that Kafka is up and available by browsing to http://localhost:9021/
 
+.. HINT::
+
+   It will take between 2 to 3 minutes after docker-compose up completes before Kafka will be ready.
+
 
 3. Run this command below to generate a sample topic data.  Max topic size is 100MB and Max retention is 12 hours.
 
