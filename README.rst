@@ -4,6 +4,12 @@ Stream Processing Challenge
 
 This challenge is meant to show-off your stream processing skills.  It was designed to be completed within a couple hours.
 
+Requirements
+============
+
+- Installation and understanding of `docker` and `docker-compose`
+- A way to perform stream processing of Kafka topics with Avro serialized data. Examples: kafka-stream, ksql, flink, spark
+
 
 Setup Instructions
 ==================
@@ -38,6 +44,11 @@ Setup Instructions
    	"quickstart": "clickstream"
      }
    }' http://localhost:8083/connectors
+
+
+4.  Confirm the challenge environment is setup by checking for the existence of the `clickstream` topic in the Control Center http://localhost:9021/
+
+    CO Cluster 1 -> Topics -> clickstream
 
 
 Challenge Instructions
