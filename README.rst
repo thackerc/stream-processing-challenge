@@ -54,11 +54,11 @@ Setup Instructions
 Challenge Instructions
 ======================
 
-Author a stream processing application using a common method of your choice (kafka-streams, flink, spark, AWS Kinesis Analytics.)  Your response to each challenge should include any code and steps used (if not obvious) to re-create your solution.
+Author a stream processing application using a common method of your choice.  Examples: kafka-streams, ksql, flink, spark, kinesis analytics.  Your response to each challenge should include any code and steps used (if not obvious) to re-create your solution.
 
-The connector that was created in the above setup has created a topic called `clickstream`.  This topic will be used in all of the below challenges.
+The connector setup in the previous steps created a topic called `clickstream`.  This topic will be used in all of the below challenges.
 
-A sample message from the `clickstream` topic:
+Here is a sample message from the `clickstream` topic:
 
 .. code:: json
 
@@ -78,7 +78,7 @@ A sample message from the `clickstream` topic:
 
 .. HINT::
 
-   This topic is Avro seralized and must be deserilaized to process.
+   This topic is Avro serialized and must be deserialized to process.
 
 
 Challenge A - Filtering
@@ -92,7 +92,7 @@ Challenge B - Sum
 
 Process the stream into 2 new streams that shows total bytes transferred for each user by minute and hour.
 
-The first stream should will be a 1 minute sum of bytes and should look like this:
+The first stream should be a 1 minute sum of bytes and look like this:
 
 .. code:: json
 
@@ -104,7 +104,7 @@ The first stream should will be a 1 minute sum of bytes and should look like thi
    }
 
 
-The second stream should be a 1 hour sum of the first stream and should look like this:
+The second stream should be a 1 hour sum of the first stream and look like this:
 
 .. code:: json
 
@@ -119,7 +119,7 @@ The second stream should be a 1 hour sum of the first stream and should look lik
 Challenge C - Sessions
 ----------------------
 
-Process the stream into a new Kafka topic to create user sessions based on a custom window aggregation which begins after a user requests to `'GET /site/login.html HTTP/1.1'` and ends 10 minutes after the first event.
+Process the stream into a new Kafka topic that is session aggregation of request counts beginning with a request of `'GET /site/login.html HTTP/1.1'` and ending 10 minutes after the first event.
 
 The session message should look like:
 
