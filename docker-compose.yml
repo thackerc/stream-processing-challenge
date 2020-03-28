@@ -125,3 +125,22 @@ services:
       KAFKA_REST_BOOTSTRAP_SERVERS: 'broker:29092'
       KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
+
+  ksql-server:
+    image: confluentinc/cp-ksql-server:5.4.0
+    depends_on:
+      - broker
+      - schema-registry
+    environment:
+      KSQL_BOOTSTRAP_SERVERS: broker:29092
+      KSQL_LISTENERS: http://0.0.0.0:8088
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      KSQL_KSQL_CONNECT_URL: "http://connect:8083"
+      KSQL_KSQL_SERVICE_ID: test
+
+  ksql-cli:
+    image: confluentinc/cp-ksql-cli:5.4.0
+    depends_on:
+      - ksql-server
+    entrypoint: /bin/sh
+    tty: true
